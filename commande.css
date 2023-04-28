@@ -1,0 +1,21 @@
+.comm{
+  margin: 4% 10%  10% 10%;
+}
+h1,h2{
+  text-align: center;
+  margin: 4% 0;
+  color: #ffc800;
+}
+  
+.form-control{
+  margin-right: 2%;
+}
+
+.btncomm{
+  margin: 7% 0;
+}
+
+.input-group{
+  margin-top: 4%;
+
+}
