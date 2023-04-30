@@ -77,7 +77,7 @@ $resultat=mysqli_query($c,$requete) or die ("impossible d'executer la requete<br
                                 <div class="portfolio-caption-subheading text-muted"><?php echo $i["producteur"]; ?></div>
                                 <div class="portfolio-caption-subheading text-muted"><?php echo $i["type"]; ?></div>
                                 <div class="portfolio-caption-subheading text-muted"><?php echo $i["nb"]; ?> Pages  </div>
-                                <div class="portfolio-caption-subheading text-muted"><?php echo $i["prix                "]; ?> TND  </div>
+                                <div class="portfolio-caption-subheading text-muted"><?php echo $i["prix"]; ?> TND  </div>
 
                                 <?php
                                  echo "<a href='commande.php?idFilm=".$i["idFilm"]."'>Commande</a> ";
