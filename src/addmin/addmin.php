@@ -40,26 +40,26 @@
         </style>
 </head>
 <body >
-<?php
-$serveur="localhost";
-$utilisateur="root";
-$mot_passe="";
-$base_donnee="gestion film";
+    <?php
+    $serveur="localhost";
+    $utilisateur="root";
+    $mot_passe="";
+    $base_donnee="gestion film";
 
-$c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
-mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
-$requete="select * from film;" ;    
+    $c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
+    mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
+    $requete="select * from film;" ;    
 
-$resultat=mysqli_query($c,$requete);
+    $resultat=mysqli_query($c,$requete);
 
-?>
-<header class="titre">
-    <a href="" class="a"><i class="fa fa-book"></i>My dashbord bibliotheque</a><br>
-    <a href="" class="aa"><?php
-    echo ("nombre de lignes du résultat = ". mysqli_num_rows($resultat));
-    ?></a>
-</header>
-<center>
+    ?>
+    <header class="titre">
+        <a href="" class="a"><i class="fa fa-book"></i>My dashbord bibliotheque</a><br>
+        <a href="" class="aa"><?php
+        echo ("nombre de lignes du résultat = ". mysqli_num_rows($resultat));
+        ?></a>
+    </header>
+    <center>
 
 
 

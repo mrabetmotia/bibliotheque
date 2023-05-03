@@ -23,7 +23,7 @@ $Num=mysqli_num_rows($resultat);
 
 if(($Num==0) and ($mdp==$cmdp)) 
 
- {$requete= "insert into user(email,nom,mdp,cmdp) values ('$email','$nom','$mdp','$cmdp');";
+ {$requete= "insert into user(email,nom,mdp) values ('$email','$nom','$mdp');";
     
     $resultat=mysqli_query ($c, $requete) or die ("erreur d'insertion<br>". mysqli_error($c));
     
