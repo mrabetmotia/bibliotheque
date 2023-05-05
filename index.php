@@ -16,27 +16,12 @@
       <!-- Core theme CSS (includes Bootstrap)-->
       <link href="styles.css" rel="stylesheet" />
       <?php
-         $serveur="localhost";
-         $utilisateur="root";
-         $mot_passe="";
-         $base_donnee="gestion film";
-         
-         $c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
-         mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
-         $requete="select * from film" ;
-         $requete1="select * from user where type ='admin'" ;
-         $resultat1=mysqli_query($c,$requete1) or die ("impossible d'executer la requete<br>");
-         
-         
-         
-         $resultat=mysqli_query($c,$requete) or die ("impossible d'executer la requete<br>");
-         
-         // Store a variable in the session
-         ?>
+         include 'src/connection/connection.php';
+       ?>
    </head>
    <body id="page-top">
       <!-- Navigation-->
-      <?php include 'nav.php'; ?>
+      <?php include 'partials/nav.php'; ?>
       <!-- Masthead-->
       <header class="masthead">
          <div class="container">
@@ -62,8 +47,7 @@
                <div class="col-lg-4 col-sm-6 mb-4">
                   <!-- Portfolio item 1-->
                   <div class="portfolio-item">
-
-                        <img class="img-fluid" src="assets/img/portfolio/<?php echo $i["img"]; ?>.jpg" alt="..." />
+                     <img class="img-fluid" src="assets/img/portfolio/<?php echo $i["img"]; ?>.jpg" alt="..." />
                      </a>
                      <div class="portfolio-caption">
                         <div class="portfolio-caption-heading"><?php echo $i["nomfilm"]; ?></div>
@@ -72,12 +56,12 @@
                         <div class="portfolio-caption-subheading text-muted"><?php echo $i["nb"]; ?> Pages  </div>
                         <div class="portfolio-caption-subheading text-muted"><?php echo $i["prix"]; ?> TND  </div>
                         <?php
-                           echo "<a href='commande.php?idFilm=".$i["idFilm"]."'>Commande <br></a> ";
+                           echo "<a href='http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/commande/commande.php?idFilm=".$i["idFilm"]."'>Commande <br></a> ";
                            
                            echo "<a href='commande/detail.php?idFilm=".$i["idFilm"]."'>Plus Detail</a> ";
                            
                            ?>
-                           <br>
+                        <br>
                      </div>
                   </div>
                </div>
@@ -164,7 +148,7 @@
             </div>
             <div class="row">
                <?php
-                  while ($i=mysqli_fetch_array($resultat1)){
+                  while ($i=mysqli_fetch_array($admin)){
                   ?>
                <div class="col-lg-4">
                   <div class="team-member">
@@ -187,7 +171,7 @@
                <h2 class="section-heading text-uppercase">Contact Us</h2>
                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-            <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="POST" action="contactF.php">
+            <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="POST" action="src/contact/contactF.php">
                <div class="row align-items-stretch mb-5">
                   <div class="col-md-6">
                      <div class="form-group">
@@ -240,8 +224,7 @@
          </div>
       </section>
       <!-- Footer-->
-      <?php include 'footer.php'; ?>
-
+      <?php include 'partials/footer.php'; ?>
       <!-- Portfolio Modals-->
       <!-- Portfolio item 1 modal popup-->
       <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -279,13 +262,6 @@
          </div>
       </div>
       <!-- Bootstrap core JS-->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-      <!-- Core theme JS-->
-      <script src="js/scripts.js"></script>
-      <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-      <!-- * *                               SB Forms JS                               * *-->
-      <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-      <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-      <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+      <?php include 'partials/scripte.php'; ?>
    </body>
 </html>

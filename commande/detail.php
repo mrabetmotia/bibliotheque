@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="description" content="" />
-      <meta name="author" content="" />
-      <title>My bibliotheque</title>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- Favicon-->
       <link rel="icon" type="image/x-icon" href="assets/img/biblioth-que-du-film-26.jpg" />
       <!-- Font Awesome icons (free version)-->
@@ -17,19 +15,14 @@
       <!-- Core theme CSS (includes Bootstrap)-->
       <link href="../styles.css" rel="stylesheet" />
       <link href="commande.css" rel="stylesheet" />
+      <title>Detail</title>
+
       <?php
-         $serveur="localhost";
-         $utilisateur="root";
-         $mot_passe="";
-         $base_donnee="gestion film";
+         include '../src/connection/connection.php'; 
          
-         $c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
-         mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
-         $requete="select * from film" ;
-         session_start();
-         
-         $resultat=mysqli_query($c,$requete) or die ("impossible d'executer la requete<br>");
-         ?>
+            session_start();
+            
+            ?>
       <style>
          @media (min-width: 992px) {
          #mainNav {
@@ -49,7 +42,7 @@
          color:white;
          }
          .img{
-         margin-top:15%;
+         margin-top:8%;
          }
          .detail{
          margin:5%;
@@ -58,11 +51,22 @@
          color: #ffc800;
          text-decoration: underline;
          }   
+         h1{
+         color:#ffc800;
+         margin-bottom:3%;
+         }
+         p {
+         font-family: Verdana, Arial, Helvetica, sans-serif;
+         font-size: 20px;
+         line-height: 1.5;
+         color: #333;
+         margin: 0 0 1em;
+         }
       </style>
    </head>
    <body id="page-top">
       <!-- Navigation-->
-      <?php include '../nav.php'; ?>
+      <?php include '../partials/nav.php'; ?>
       <?php
          if (isset($_GET['idFilm'])) {
          $codef = $_GET['idFilm'];
@@ -95,7 +99,7 @@
          ?>
       <!--commande-->
       <center class="img">
-         <h1>Plus Detail Pour <?php echo"'$nomf'"?></h1>
+         <h1>Plus Detail Pour Livre <?php echo"'$nomf'"?></h1>
          <div class=" col-lg-4 col-sm-6 mb-4">
             <!-- Portfolio item 1-->
             <div class="portfolio-item">
@@ -107,12 +111,8 @@
          <p class="detail"><?php echo"$detail"?> <br><a href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/#portfolio" class="a">Retour</a></p>
       </div>
       <!-- Footer-->
-      <?php include '../footer.php'; ?>
-
+      <?php include '../partials/footer.php'; ?>
       <!-- Bootstrap core JS-->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-      <script src="js/scripts.js"></script>
-      <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+      <?php include '../partials/scripte.php'; ?>
    </body>
 </html>
