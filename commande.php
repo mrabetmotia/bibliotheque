@@ -27,12 +27,19 @@
             $c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
             mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
             $requete="select * from film" ;
-            $requete1="select * from user where type ='admin'" ;
-            $resultat1=mysqli_query($c,$requete1) or die ("impossible d'executer la requete<br>");
 
             $resultat=mysqli_query($c,$requete) or die ("impossible d'executer la requete<br>");
         ?>
-
+        <style>
+            @media (min-width: 992px) {
+        #mainNav {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            border: none;
+            background-color: #212529;
+            transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+        }}
+        </style>
     </head>
     <body id="page-top">
 
@@ -47,10 +54,9 @@
                 <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
             </div>
         </header>
-
         <!--commande-->
 
-        <form action="commande_req.php" method="POST" class="comm">
+        <form action="commande_req.php" id="commande" method="POST" class="comm">
             <h1>Ajouter un commmande</h1>
             <div class="input-group mb-3">
             <input type="text" class="form-control" name="user" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
@@ -181,22 +187,8 @@
         </section>
 
         <!-- Footer-->
-        <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2022</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                        <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php include 'footer.php'; ?>
+
         <!-- Portfolio Modals-->
         <!-- Portfolio item 1 modal popup-->
         <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">

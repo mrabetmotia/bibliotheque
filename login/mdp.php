@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             alert("Les mots de passe ne correspondent pas");
         </script>
         <?php
-        header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/login/oublie.php');
+        header('refresh: 0; oublie.php');
         exit;
     }
     $requete = "UPDATE user SET mdp = '$newPassword' WHERE email = '$email'";
@@ -29,17 +29,17 @@ if ($result) {
     if ($num_rows_affected > 0) {
         ?>
         <script>
-            alert("Le mot de passe a été mis à jour avec succès.");
+            alert("Le mot de passe a ete mis a jour avec succes.");
         </script>
         <?php
-        header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/login/login.html');
+        header('refresh: 0; login.html');
     } else {
         ?>
         <script>
             alert("aucun enregistrement mis à jour.");
         </script>
         <?php
-        header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/login/oublie.php');
+        header('refresh: 0; oublie.php');
     }
 } else {
     echo "Erreur: " . mysqli_error($c);
