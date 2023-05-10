@@ -33,7 +33,7 @@
     alert("email not exsiste");
     </script>
     <?php
-    header('refresh: 0.1; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/login/login.html');
+    header('refresh: 0.1; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/login/login.html');
     
     ;}
     // Ajout d'un enregistrement à la table "personne" }
@@ -45,7 +45,7 @@
     
     </script>
     <?php
-    header('refresh: 0.1; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/login/login.html');}
+    header('refresh: 0.1; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/login/login.html');}
     
     
     else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -82,37 +82,37 @@
     
         if ($_SESSION['Type'] == 'user') {
             ?>
-    <script>
-    alert("Welcome <?php echo ($_SESSION['username'])?>");
-    
-    </script>
-    <?php
-    header('Refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/');
-    exit;
-    } elseif ($_SESSION['Type'] == 'admin') {
-        ?>
-    <script>
-    alert("Welcome <?php echo ($_SESSION['username'])?>");
-    
-    </script>
-    <?php
-    header('Refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/index.php');
-    exit;
-    }
-    }
-    
-    // Close the database connection
-    $pdo = null;
-    
-    // If user information is incorrect, display error message
-    $error_message = "Incorrect Email or password";
-    }
+        <script>
+        alert("Welcome <?php echo ($_SESSION['username'])?>");
+        
+        </script>
+        <?php
+        header('Refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/');
+        exit;
+        } elseif ($_SESSION['Type'] == 'admin') {
             ?>
-    <script>
-    alert("Welcome");
-    
-    </script>
-    <?php
-    header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/addmin/addmin.php');
+        <script>
+        alert("Welcome <?php echo ($_SESSION['username'])?>");
+        
+        </script>
+        <?php
+        header('Refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/index.php');
+        exit;
+        }
+        }
+        
+        // Close the database connection
+        $pdo = null;
+        
+        // If user information is incorrect, display error message
+        $error_message = "Incorrect Email or password";
+        }
+                ?>
+        <script>
+        alert("Welcome");
+        
+        </script>
+        <?php
+        header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/addmin/addmin.php');
     }
 ?>
