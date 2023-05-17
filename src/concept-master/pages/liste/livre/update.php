@@ -184,7 +184,7 @@
                               	echo "img : <input type='text' name='img' value='$img'><br><br>";
                               	echo "prix : <input type='text' name='prix' value='$prix'><br><br>";
                               	echo "nb : <input type='text' name='nb' value='$nb'><br><br>";
-                              	echo "nb : <textarea name='des' value='$des'></textarea><br><br>";
+                              	echo "Description : <textarea name='des' >$des</textarea><br><br>";
                               
                               
                               

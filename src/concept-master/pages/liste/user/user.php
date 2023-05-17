@@ -13,6 +13,34 @@
                .dashboard-wrapper{
                margin-top: 5%;
                }
+               .Supprimer{
+               display: inline-block;
+               padding: 10px 20px;
+               background-color: #e00b23;
+               color: white;
+               border: none;
+               border-radius: 4px;
+               text-decoration: none;
+               font-size: 14px;
+               cursor: pointer;
+               }
+
+               .modifier{
+                  display: inline-block;
+               padding: 10px 20px;
+               background-color: #2ec551;
+               color: white;
+               border: none;
+               border-radius: 4px;
+               text-decoration: none;
+               font-size: 14px;
+               cursor: pointer;
+               }
+
+
+               button a {
+               color:white;
+               }
             </style>
          </head>
          <body>
@@ -77,7 +105,7 @@
                                     <td><?php echo $i["type"]; ?> </td>
                                     <td>
                                        <?php
-                                          echo "<a href='update.php?iduser=".$i["iduser"]."'>Modifier</a> | <a href='supp.php?iduser=".$i["iduser"]."'>Supprimer</a></td>";
+                                          echo "<button class='modifier'><a href='update.php?iduser=".$i["iduser"]."'>Modifier</a></button> <br/><br/><button class='Supprimer'> <a href='supp.php?iduser=".$i["iduser"]."'>Supprimer</a></button></td>";
                                           ?>
                                     </td>
                                  </tr>
@@ -120,7 +148,7 @@
                                     <td><?php echo $i["type"]; ?> </td>
                                     <td>
                                        <?php
-                                          echo "<a href='update.php?iduser=".$i["iduser"]."'>Modifier</a> | <a href='supp.php?iduser=".$i["iduser"]."'>Supprimer</a></td>";
+                                          echo "<button class='modifier'><a href='update.php?iduser=".$i["iduser"]."'>Modifier</a></button> <br/><br/><button class='Supprimer'> <a href='supp.php?iduser=".$i["iduser"]."'>Supprimer</a></button></td>";
                                           ?>
                                     </td>
                                  </tr>

@@ -8,6 +8,17 @@
          .mot{
          margin-left: 30%;
          }
+         label{
+            color: #fff;
+            font-size: 2.3em;
+            justify-content: center;
+            display: flex;
+            margin: 60px 60px 0 60px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+         }
+
       </style>
    </head>
    <body >
@@ -15,12 +26,15 @@
          <input type="checkbox" id="chk" aria-hidden="true">
          <div class="signup">
             <form method="post" action="register.php">
-               <label for="chk" aria-hidden="true">Sign up</label>
-               <input type="email" name="email" placeholder="Email" required="">
-               <input type="text" name="nom" placeholder="User name" required="">
-               <input type="password" name="mdp" placeholder="Password" required="">
-               <input type="password" name="cmdp" placeholder="Confirme le Password" required="">
-               <button>Register</button>
+               <div style="margin-bottom: 10%;">
+                  <label for="chk" aria-hidden="true">Sign up</label>
+                  <input type="email" name="email" placeholder="Email" required="">
+                  <input type="text" name="nom" placeholder="User name" required="">
+                  <input type="number" name="tel" placeholder="Telephone" required="">
+                  <input type="password" name="mdp" placeholder="Password" required="">
+                  <input type="password" name="cmdp" placeholder="Confirme le Password" required="">
+                  <button>Register</button>
+               </div>
             </form>
          </div>
          <div class="login">

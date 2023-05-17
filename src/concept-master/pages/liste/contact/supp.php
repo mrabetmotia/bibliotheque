@@ -16,10 +16,10 @@ if (isset($_GET['id']))
     $sql = "DELETE FROM contact WHERE id=$id";
     if ($conn->query($sql) === true)
     {
-?>
-			<script>
-						alert("Merci, Message Numéro <?php $id ?> a bien ete supprime");
-			</script>
+            ?>
+                <script>
+                   alert("Merci, Message a bien ete supprime");
+                </script>
 			<?php
         header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/contact/contact.php');
     }

@@ -18,6 +18,50 @@
       <?php
          include 'src/connection/connection.php';
        ?>
+       <style>
+  .filter-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+   }
+
+   .filter-item {
+      margin-right: 10px;
+   }
+
+   .label {
+      font-weight: bold;
+      margin-right: 5px;
+   }
+
+   .select {
+      padding: 8px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #333;
+   }
+
+   .a{
+      padding: 8px 16px;
+      background-color: #2e352e;
+      color: white;
+      border-radius: 15px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+   }
+   
+   .a:hover {
+      background-color: #000000;
+   }
+
+   .a:hover {
+      background-color: #000000;
+   }
+       </style>
    </head>
    <body id="page-top">
       <!-- Navigation-->
@@ -31,44 +75,80 @@
          </div>
       </header>
       <!--affichage-->
-      <?php include 'filter.php'; ?>
-      <section class="page-section bg-light" id="portfolio" methode="" action="index.php">
-         <div class="container">
-            <div class="text-center">
-               <h2 class="section-heading text-uppercase">Portfolio</h2>
-               <h3 class="section-subheading text-muted">liste de film disponible</h3>
-            </div>
-            <div class="row">
-               <?php
-                  while ($i=mysqli_fetch_array($resultat))
-                   
-                  {
-                  ?>
+      <section class="page-section bg-light" id="portfolio">
+   <div class="container">
+      <div class="text-center">
+         <h2 class="section-heading text-uppercase">Portfolio</h2>
+         <h3 class="section-subheading text-muted">Liste de films disponibles</h3>
+      </div>
+      <form action="" method="POST">
+      
+<div class="filter-bar">
+   <div class="filter-item">
+      <label class="label" for="type-filter">Type :</label>
+      <select class="select" id="type-filter" name="type">
+         <option value="all">Tous</option>
+         <option value="Roman">Roman</option>
+         <option value="Fantastique">Fantastique</option>
+         <option value="Romance">Romance</option>
+         <option value="Action">Action</option>
+      </select>
+   </div>
+   <button class="a" type="submit"><i class="fa fa-search"></i> Recherche</button>
+</div>
+      </form>
+      <div class="row">
+         <?php
+
+         $Type = $_POST["type"];
+
+         if ($Type == 'all') {
+               while ($i = mysqli_fetch_array($resultat)) {
+                  renderPortfolioItem($i);
+               }
+            } elseif ($Type ==  "Roman") {
+               while ($i = mysqli_fetch_array($Roman)) {
+                  renderPortfolioItem($i);
+               }
+            }elseif ($Type ==  "Fantastique") {
+               while ($i = mysqli_fetch_array($Fantastique)) {
+                  renderPortfolioItem($i);
+               }
+            }elseif ($Type ==  "Romance") {
+               while ($i = mysqli_fetch_array($Romance)) {
+                  renderPortfolioItem($i);
+               }
+            }elseif ($Type ==  "Action") {
+               while ($i = mysqli_fetch_array($Action)) {
+                  renderPortfolioItem($i);
+               }
+            }
+            function renderPortfolioItem($item)
+            {
+               ?>
                <div class="col-lg-4 col-sm-6 mb-4">
-                  <!-- Portfolio item 1-->
                   <div class="portfolio-item">
-                     <img class="img-fluid" src="assets/img/portfolio/<?php echo $i["img"]; ?>.jpg" alt="..." />
-                     </a>
+                     <img class="img-fluid" src="assets/img/portfolio/<?php echo $item["img"]; ?>.jpg" alt="..." />
                      <div class="portfolio-caption">
-                        <div class="portfolio-caption-heading"><?php echo $i["nomfilm"]; ?></div>
-                        <div class="portfolio-caption-subheading text-muted"><?php echo $i["producteur"]; ?></div>
-                        <div class="portfolio-caption-subheading text-muted"><?php echo $i["type"]; ?></div>
-                        <div class="portfolio-caption-subheading text-muted"><?php echo $i["nb"]; ?> Pages  </div>
-                        <div class="portfolio-caption-subheading text-muted"><?php echo $i["prix"]; ?> TND  </div>
-                        <?php
-                           echo "<a href='http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/commande/commande.php?idFilm=".$i["idFilm"]."'>Commande <br></a> ";
-                           
-                           echo "<a href='commande/detail.php?idFilm=".$i["idFilm"]."'>Plus Detail</a> ";
-                           
-                           ?>
-                        <br>
+                        <div class="portfolio-caption-heading"><?php echo $item["nomfilm"]; ?></div>
+                        <div class="portfolio-caption-subheading text-muted"><?php echo $item["producteur"]; ?></div>
+                        <div class="portfolio-caption-subheading text-muted"><?php echo $item["type"]; ?></div>
+                        <div class="portfolio-caption-subheading text-muted"><?php echo $item["nb"]; ?> Pages</div>
+                        <div class="portfolio-caption-subheading text-muted"><?php echo $item["prix"]; ?> TND</div>
+                        <a href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/commande/commande.php?idFilm=<?php echo $item["idFilm"]; ?>">Commande</a>
+                        <br />
+                        <a href="commande/detail.php?idFilm=<?php echo $item["idFilm"]; ?>">Plus de détails</a>
                      </div>
                   </div>
                </div>
-               <?php } ?>
-            </div>
-         </div>
-      </section>
+            <?php
+            }
+         ?>
+      </div>
+   </div>
+</section>
+
+
       <!-- About-->
       <section class="page-section" id="about">
          <div class="container">

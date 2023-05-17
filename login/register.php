@@ -1,9 +1,11 @@
 <?php
+
+require "../crypte/lib/password.php";
    $email=$_POST["email"];
    $nom=$_POST["nom"];
    $mdp=$_POST["mdp"];
    $cmdp=$_POST["cmdp"];
-   
+   $tel=$_POST["tel"];
    $serveur="localhost";
    $utilisateur="root";
    $mot_passe="";  
@@ -23,7 +25,9 @@
    
    if(($Num==0) and ($mdp==$cmdp)) 
    
-    {$requete= "insert into user(email,nom,mdp) values ('$email','$nom','$mdp');";
+    {
+      $hashedPassword = password_hash($mdp, PASSWORD_DEFAULT);
+      $requete= "insert into user(email,nom,mdp,tel) values ('$email','$nom','$hashedPassword','$tel');";
        
        $resultat=mysqli_query ($c, $requete) or die ("erreur d'insertion<br>". mysqli_error($c));
        
@@ -53,6 +57,6 @@
     
     </script>
     <?php
-    header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/');
+    header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/login/login.html');
     }    
 ?>

@@ -14,6 +14,20 @@
                .dashboard-wrapper{
                margin-top: 5%;
                }
+               .Supprimer{
+               display: inline-block;
+               padding: 10px 20px;
+               background-color: #e00b23;
+               color: white;
+               border: none;
+               border-radius: 4px;
+               text-decoration: none;
+               font-size: 14px;
+               cursor: pointer;
+               }
+               button a {
+               color:white;
+               }
             </style>
          </head>
          <body>
@@ -74,7 +88,8 @@
                                     <td><?php echo $i["noml"]; ?> </td>
                                     <td>
                                        <?php
-                                          echo " <a href='supp.php?id=".$i["id"]."'>Supprimer</a></td>";
+                                          echo "<button class='Supprimer'><a href='supp.php?id=".$i["id"]."'>Supprimer</a></button></td>";
+
                                           ?>
                                     </td>
                                  </tr>
