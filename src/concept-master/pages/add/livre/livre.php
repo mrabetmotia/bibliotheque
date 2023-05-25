@@ -32,6 +32,7 @@
                margin-bottom: 10px;
                }
                input[type="text"],
+               input[type="number"],
                input[type="email"],
                textarea {
                width: 100%;
@@ -107,7 +108,6 @@
                         <fieldset>
                            <legend align="center">Add livre</legend>
                            <form method="POST" action="ajout.php">
-                              <a href="../login/login.html"></a>
                               <label for="nomf">Nom du livre:</label>
                               <input type="text" id="nomf" name="nomf"><br><br>
                               <label for="lname">Producteur:</label>
@@ -117,9 +117,11 @@
                               <label for="lname">img:</label>
                               <input type="text" id="img" name="img"><br><br>
                               <label for="lname">Prix:</label>
-                              <input type="text" id="img" name="prix"><br><br>
+                              <input type="number" id="img" name="prix"><br><br>
                               <label for="lname">Nombre de Page:</label>
-                              <input type="text" id="nb" name="nb"><br><br>
+                              <input type="number" id="nb" name="nb"><br><br>                              
+                              <label for="qte">Quantité:</label>
+                              <input type="number" id="qte" name="qte"><br><br>
                               <textarea name="des" placeholder="Description:"></textarea>
                               <input type="reset" value="Effacer">
                               <input type="submit" value="Ajouter">

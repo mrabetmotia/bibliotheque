@@ -2,7 +2,7 @@
    ?>
 <div class="dashboard-header">
    <nav class="navbar navbar-expand-lg bg-white fixed-top">
-      <a class="navbar-brand" href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/index.php">MY BIBLIOTHEQUE</a>
+      <a class="navbar-brand" href="http://127.0.0.1/projects/poject/src/concept-master/index.php">MY BIBLIOTHEQUE</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
@@ -15,7 +15,7 @@
                      <h5 class="mb-0 text-white nav-user-name"><?php echo($_SESSION['username']) ?> </h5>
                      <span class="status"></span><span class="ml-2">Addmin</span>
                   </div>
-                  <a class="dropdown-item" href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/login/logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                  <a class="dropdown-item" href="http://127.0.0.1/projects/poject/login/logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                </div>
             </li>
          </ul>

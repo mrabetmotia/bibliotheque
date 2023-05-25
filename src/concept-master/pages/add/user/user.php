@@ -105,7 +105,7 @@
                   <fieldset>
                      <legend align="center">Add user</legend>
                      <form method='POST' action="ajout.php">
-                        <label for="nom">Nom du livre:</label>
+                        <label for="nom">Nom :</label>
                         <input type='text' id="nom" name='nom' >
                         <label for="email">Email:</label>
                         <input type='text' name='email' id="email">

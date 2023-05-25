@@ -21,7 +21,7 @@ if (isset($_GET['id']))
                    alert("Merci, Message a bien ete supprime");
                 </script>
 			<?php
-        header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/contact/contact.php');
+        header('refresh: 0; http://127.0.0.1/projects/poject/src/concept-master/pages/liste/contact/contact.php');
     }
     else
     {

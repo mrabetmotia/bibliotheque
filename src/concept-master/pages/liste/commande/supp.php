@@ -15,10 +15,10 @@
    		if ($conn->query($sql) === TRUE) {
    			?>
 	<script>
-	alert("Merci, commande Numéro <?php $id ?> a bien ete supprime");
+	alert("Merci, commande  de <?php $id ?> a bien ete supprime");
 	</script>
 	<?php
-	header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/commande/commande.php');
+	header('refresh: 0; http://127.0.0.1/projects/poject/src/concept-master/pages/liste/commande/commande.php');
 	} else {
 	echo "Erreur lors de la suppression de livre: " . $conn->error;
 	}

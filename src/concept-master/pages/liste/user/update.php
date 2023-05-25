@@ -172,7 +172,7 @@
                               alert("Merci, User id <?php $iduser ?> a bien ete modifer");
                            </script>
                            <?php
-                              header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/user/user.php');
+                              header('refresh: 0; http://127.0.0.1/projects/poject/src/concept-master/pages/liste/user/user.php');
                               
                               } else {
                               echo "Erreur de modification de user : <br> " . mysqli_error($conn);

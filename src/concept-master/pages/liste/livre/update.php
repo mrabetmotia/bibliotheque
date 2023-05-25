@@ -151,6 +151,7 @@
                               		$prix = $row['prix'];
                               		$des = $row['detail'];
                               		$nb = $row['nb'];
+                              		$qte = $row['qte'];
                               	
                               	} else {
                               		echo "Erreur : Film non trouve.";
@@ -164,12 +165,19 @@
                               		$type = $_POST['type'];
                               		$img = $_POST['img'];
                               		$prix = $_POST['prix'];
-                              		$des = $_POST['detail'];
+                              		$des = $_POST['des'];
                               		$nb = $_POST['nb'];
+                              		$qte = $_POST['qte'];
                               	
-                              		$sql = "update film set nomfilm='$nomf',producteur='$prod' ,type='$type',img='$img', nb='$nb',prix='$prix',detail='$des'  where codefilm='$codef' ";
+                              		$sql = "update film set nomfilm='$nomf',producteur='$prod' ,type='$type',img='$img', nb='$nb',prix='$prix',detail='$des',qte='$qte'  where idFilm='$codef' ";
                               		if (mysqli_query($conn, $sql)) {
-                              			echo "film modifie avec succès.<br>";
+                                       ?>
+                                       <script>
+                                          alert("film modifie avec succès");
+                                          
+                                       </script>
+                                       <?php
+                                       
                               		} else {
                               			echo "Erreur de modification de film : <br> " . mysqli_error($conn);
                               		}
@@ -184,6 +192,7 @@
                               	echo "img : <input type='text' name='img' value='$img'><br><br>";
                               	echo "prix : <input type='text' name='prix' value='$prix'><br><br>";
                               	echo "nb : <input type='text' name='nb' value='$nb'><br><br>";
+                              	echo "qte : <input type='text' name='qte' value='$qte'><br><br>";
                               	echo "Description : <textarea name='des' >$des</textarea><br><br>";
                               
                               

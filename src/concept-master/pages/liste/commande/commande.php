@@ -72,6 +72,7 @@
                                     <th class="border-0">Telephone</th>
                                     <th class="border-0">Email</th>
                                     <th class="border-0">Nom Livre</th>
+                                    <th class="border-0">Quantité </th>
                                  </tr>
                               </thead>
                               <tbody>
@@ -86,6 +87,8 @@
                                     <td><?php echo $i["tel"]; ?> </td>
                                     <td><?php echo $i["email"]; ?> </td>
                                     <td><?php echo $i["noml"]; ?> </td>
+                                    <td><?php echo $i["qte"]; ?> </td>
+
                                     <td>
                                        <?php
                                           echo "<button class='Supprimer'><a href='supp.php?id=".$i["id"]."'>Supprimer</a></button></td>";

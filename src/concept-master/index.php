@@ -27,7 +27,7 @@
          ?>
       <div class="dashboard-header">
          <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/index.php">MY BIBLIOTHEQUE</a>
+            <a class="navbar-brand" href="http://127.0.0.1/projects/poject/src/concept-master/index.php">MY BIBLIOTHEQUE</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,7 +41,7 @@
                            <h5 class="mb-0 text-white nav-user-name"><?php echo($_SESSION['username']) ?> </h5>
                            <span class="status"></span><span class="ml-2">Addmin</span>
                         </div>
-                        <a class="dropdown-item" href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/login/logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                        <a class="dropdown-item" href="http://127.0.0.1/projects/poject/login/logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
                      </div>
                   </li>
                </ul>
@@ -156,6 +156,7 @@
                                              <th class="border-0">Telephone</th>
                                              <th class="border-0">Email</th>
                                              <th class="border-0">Nom Livre</th>
+                                             <th class="border-0">quantité</th>
                                           </tr>
                                        </thead>
                                        <tbody>
@@ -169,13 +170,14 @@
                                              <td><?php echo $i["tel"]; ?> </td>
                                              <td><?php echo $i["email"]; ?> </td>
                                              <td><?php echo $i["noml"]; ?> </td>
+                                             <td><?php echo $i["qte"]; ?> </td>
                                           </tr>
                                           <?php } ?>
                                        </tbody>
                                     </table>
                                  </div>
                                  <div class="card-footer text-center">
-                                 <a href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/commande/commande.php" class="btn-primary-link">View Details</a>
+                                 <a href="http://127.0.0.1/projects/poject/src/concept-master/pages/liste/commande/commande.php" class="btn-primary-link">View Details</a>
                               </div>
                               </div>
                            </div>
@@ -216,7 +218,51 @@
                                     </table>
                                  </div>
                                  <div class="card-footer text-center">
-                                 <a href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/contact/contact.php" class="btn-primary-link">View Details</a>
+                                 <a href="http://127.0.0.1/projects/poject/src/concept-master/pages/liste/contact/contact.php" class="btn-primary-link">View Details</a>
+                              </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                           <div class="card">
+                              <h5 class="card-header">Liste de Livree</h5>
+                              <div class="card-body p-0">
+                                 <div class="table-responsive">
+                                    <table class="table">
+                                       <thead class="bg-light">
+                                          <tr class="border-0">
+                                             <th class="border-0">Id Film</th>
+                                             <th class="border-0">Nom Film</th>
+                                             <th class="border-0">Producteur</th>
+                                             <th class="border-0">Type</th>
+                                             <th class="border-0">Nb Page</th>
+                                             <th class="border-0">Prix</th>
+                                             <th class="border-0">Quantité</th>
+                                          </tr>
+                                       </thead>
+                                       <tbody>
+                                          <?php
+                                             while ($i=mysqli_fetch_array($Livree))
+                                             {
+                                             ?>
+                                          <tr>
+
+                                             <td><span class="badge-dot badge-brand mr-1"></span><?php echo $i["idFilm"]; ?> </td>
+                                             <td>i<?php echo $i["nomfilm"]; ?>  </td>
+                                             <td><?php echo $i["producteur"]; ?> </td>
+                                             <td><?php echo $i["type"]; ?> </td>
+                                             <td><?php echo $i["nb"]; ?> </td>
+                                             <td><?php echo $i["prix"]; ?> </td>
+                                             <td><?php echo $i["qte"]; ?> </td>
+                                          </tr>
+                                          <?php } ?>
+                                       </tbody>
+                                    </table>
+                                 </div>
+                                 <div class="card-footer text-center">
+                                 <a href="http://127.0.0.1/projects/poject/src/concept-master/pages/liste/contact/contact.php" class="btn-primary-link">View Details</a>
                               </div>
                               </div>
                            </div>
@@ -239,7 +285,7 @@
                                  <?php } ?>
                               </div>
                               <div class="card-footer text-center">
-                                 <a href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/user/user.php" class="btn-primary-link">View Details</a>
+                                 <a href="http://127.0.0.1/projects/poject/src/concept-master/pages/liste/user/user.php" class="btn-primary-link">View Details</a>
                               </div>
                            </div>
                            <!-- user end  -->
@@ -254,49 +300,7 @@
                         <!-- end sales traffice country source  -->
                         <!-- ============================================================== -->
                      </div>
-                     <div class="row">
-                        <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
-                           <!-- user  -->
-                           <div class="card">
-                              <h5 class="card-header"> Liste De Livre</h5>
-                              <div class="card-body p-0">
-                                 <?php
-                                    while ($i=mysqli_fetch_array($Livree))
-                                    {
-                                    ?>
-                                 <ul class="social-sales list-group list-group-flush">
-                                    <li class="list-group-item social-sales-content">
-                                       <span class="social-sales-icon-circle facebook-bgcolor mr-2">
-                                       <img src="../../assets/img/portfolio/<?php echo $i["img"]; ?>.jpg" alt="">
-                                       </span>
-                                       <span class="social-sales-name"><?php echo $i["idFilm"]; ?>
-                                       </span>
-                                       <span class="social-sales-count text-dark">Nom : <?php echo $i["nomfilm"]; ?> ||     
-                                       <span class="social-sales-count text-dark"> Producteur : <?php echo $i["producteur"]; ?>|| 
-                                       <span class="social-sales-count text-dark">Type :  <?php echo $i["type"]; ?>|| 
-                                       <span class="social-sales-count text-dark"><?php echo $i["nb"]; ?> Page|| 
-                                       <span class="social-sales-count text-dark"><?php echo $i["prix"]; ?> TND|| 
-                                       </span>
-                                    </li>
-                                 </ul>
-                                 <?php } ?>
-                              </div>
-                              <div class="card-footer text-center">
-                                 <a href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/livre/livre.php" class="btn-primary-link">View Details</a>
-                              </div>
-                           </div>
-                           <!-- user end  -->
-                        </div>
-                        <!-- ============================================================== -->
-                        <!-- end sales traffice source  -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- sales traffic country source  -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- end sales traffice country source  -->
-                        <!-- ============================================================== -->
-                     </div>
+
                      <div class="row">
                         <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
                            <!-- user  -->
@@ -308,13 +312,13 @@
                                     {
                                     ?>
                                  <ul class="social-sales list-group list-group-flush">
-                                    <li class="list-group-item social-sales-content"><span class="social-sales-icon-circle facebook-bgcolor mr-2"><img src="../../assets/img/team/<?php echo $i["img"]; ?>.jpg" alt=""></span><span class="social-sales-name"><?php echo $i["nom"]; ?></span><span class="social-sales-count text-dark">Telephone : <?php echo $i["tel"]; ?></span>
+                                    <li class="list-group-item social-sales-content"><span class="badge-dot badge-brand mr-1"></span>  <span class="social-sales-name"><?php echo $i["nom"]; ?></span><span class="social-sales-count text-dark">Telephone : <?php echo $i["tel"]; ?></span>
                                     </li>
                                  </ul>
                                  <?php } ?>
                               </div>
                               <div class="card-footer text-center">
-                                 <a href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/pages/liste/user/user.php" class="btn-primary-link">View Details</a>
+                                 <a href="http://127.0.0.1/projects/poject/src/concept-master/pages/liste/user/user.php" class="btn-primary-link">View Details</a>
                               </div>
                            </div>
                            <!-- user end  -->

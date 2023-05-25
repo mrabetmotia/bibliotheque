@@ -87,6 +87,8 @@
                                     <th class="border-0">Type</th>
                                     <th class="border-0">Nombre De page</th>
                                     <th class="border-0">prix</th>
+                                    <th class="border-0">Quantité</th>
+
                                  </tr>
                               </thead>
                               <tbody>
@@ -102,6 +104,8 @@
                                     <td><?php echo $i["type"]; ?> </td>
                                     <td><?php echo $i["nb"]; ?> </td>
                                     <td><?php echo $i["prix"]; ?> </td>
+                                    <td><?php echo $i["qte"]; ?> </td>
+
                                     <td>
                                        <?php
                                           echo "<button class='modifier'><a href='update.php?idFilm=".$i["idFilm"]."'>Modifier</a></button> <br/><br/><button class='Supprimer'> <a href='supp.php?idFilm=".$i["idFilm"]."'>Supprimer</a></button></td>";

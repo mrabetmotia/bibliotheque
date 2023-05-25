@@ -33,7 +33,7 @@
     alert("email not exsiste");
     </script>
     <?php
-    header('refresh: 0.1; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/login/login.html');
+    header('refresh: 0.1; http://127.0.0.1/projects/poject/login/login.html');
     
     ;}
     // Ajout d'un enregistrement à la table "personne" }
@@ -45,7 +45,7 @@
     
     </script>
     <?php
-    header('refresh: 0.1; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/login/login.html');}
+    header('refresh: 0.1; http://127.0.0.1/projects/poject/login/login.html');}
     
     
     else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -87,7 +87,7 @@
         
         </script>
         <?php
-        header('Refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/');
+        header('Refresh: 0; http://127.0.0.1/projects/poject/');
         exit;
         } elseif ($_SESSION['Type'] == 'admin') {
             ?>
@@ -96,7 +96,7 @@
         
         </script>
         <?php
-        header('Refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/concept-master/index.php');
+        header('Refresh: 0; http://127.0.0.1/projects/poject/src/concept-master/index.php');
         exit;
         }
         }
@@ -113,6 +113,6 @@
         
         </script>
         <?php
-        header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/addmin/addmin.php');
+        header('refresh: 0; http://127.0.0.1/projects/poject/src/addmin/addmin.php');
     }
 ?>

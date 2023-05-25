@@ -51,10 +51,11 @@
          <h1>Ajouter un commmande</h1>
          <div class="input-group mb-3">
             <input type="text" class="form-control" name="user" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" require>
-            <input type="text" class="form-control" name="tel" placeholder="Telephone" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="number" class="form-control" name="tel" placeholder="Telephone" aria-label="Username" aria-describedby="basic-addon1" require>
+            <input type="number" class="form-control" name="qte" placeholder="Nombre De Livre Commandé" aria-label="Username" aria-describedby="basic-addon1" require>
          </div>
          <div class="input-group mb-3">
-            <input type="text" class="form-control"  name="email" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control"  name="email" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2" require>
             <span class="input-group-text" id="basic-addon2">@gmail.com</span>
          </div>
          <h2 for="basic-url" class="form-label">Your Livre </h2>

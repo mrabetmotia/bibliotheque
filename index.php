@@ -71,7 +71,7 @@
          <div class="container">
             <div class="masthead-subheading">Welcome to the library</div>
             <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="#about">Tell Me More</a>
+            <a class="btn btn-primary btn-xl text-uppercase" href="http://127.0.0.1/projects/poject/#contact">Tell Me More</a>
          </div>
       </header>
       <!--affichage-->
@@ -99,8 +99,10 @@
       </form>
       <div class="row">
          <?php
-
-         $Type = $_POST["type"];
+         if (empty($_POST['type'])) {
+            $_POST['type'] = 'all';
+        }   
+         $Type = $_POST["type"]; 
 
          if ($Type == 'all') {
                while ($i = mysqli_fetch_array($resultat)) {
@@ -135,7 +137,7 @@
                         <div class="portfolio-caption-subheading text-muted"><?php echo $item["type"]; ?></div>
                         <div class="portfolio-caption-subheading text-muted"><?php echo $item["nb"]; ?> Pages</div>
                         <div class="portfolio-caption-subheading text-muted"><?php echo $item["prix"]; ?> TND</div>
-                        <a href="http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/src/commande/commande.php?idFilm=<?php echo $item["idFilm"]; ?>">Commande</a>
+                        <a href="http://127.0.0.1/projects/poject/src/commande/commande.php?idFilm=<?php echo $item["idFilm"]; ?>">Commande</a>
                         <br />
                         <a href="commande/detail.php?idFilm=<?php echo $item["idFilm"]; ?>">Plus de détails</a>
                      </div>
