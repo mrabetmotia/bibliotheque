@@ -15,7 +15,7 @@
    		if ($conn->query($sql) === TRUE) {
    			?>
 	<script>
-	alert("Merci, commande  de <?php $id ?> a bien ete supprime");
+	alert("Merci, commande  id <?php echo $id ?> a bien ete supprime");
 	</script>
 	<?php
 	header('refresh: 0; http://127.0.0.1/projects/poject/src/concept-master/pages/liste/commande/commande.php');

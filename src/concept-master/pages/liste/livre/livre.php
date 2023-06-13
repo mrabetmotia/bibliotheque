@@ -81,11 +81,11 @@
                               <thead class="bg-light">
                                  <tr class="border-0">
                                     <th class="border-0"></th>
-                                    <th class="border-0">IdFilm </th>
-                                    <th class="border-0">Nom Film </th>
+                                    <th class="border-0">IdLivre </th>
+                                    <th class="border-0">Nom Livre </th>
                                     <th class="border-0">Producteur</th>
                                     <th class="border-0">Type</th>
-                                    <th class="border-0">Nombre De page</th>
+                                    <th class="border-0">Nombre_De_page</th>
                                     <th class="border-0">prix</th>
                                     <th class="border-0">Quantité</th>
 

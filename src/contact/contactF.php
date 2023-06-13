@@ -26,7 +26,7 @@ else
 {
 ?>
     <script>
-                alert("Remplire Tout Les champe ");
+                alert("Remplire Tout Les champs ");
     </script>
     <?php
     header('refresh: 0.1; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/#contact');

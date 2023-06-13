@@ -233,8 +233,8 @@
                                     <table class="table">
                                        <thead class="bg-light">
                                           <tr class="border-0">
-                                             <th class="border-0">Id Film</th>
-                                             <th class="border-0">Nom Film</th>
+                                             <th class="border-0">Id Livre</th>
+                                             <th class="border-0">Nom Livre</th>
                                              <th class="border-0">Producteur</th>
                                              <th class="border-0">Type</th>
                                              <th class="border-0">Nb Page</th>

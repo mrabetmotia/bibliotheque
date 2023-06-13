@@ -6,17 +6,17 @@ $base_donnee = "gestion film";
 
 $c = mysqli_connect($serveur, $utilisateur, $mot_passe) or die("erreur de connexion au serveur");
 mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
-$requete = "select * from film;";
-$commande = "select * from commande;";
-$user = "select * from user;";
-$contact = "select * from contact;";
-$Livre = "select * from film;";
-$admin = "select * from user where type='admin';";
-$user = "select * from user where type='user';";
-$roman = "select * from film where type = 'Roman'";
-$fantastique = "select * from film where type = 'Fantastique'";
-$romance = "select * from film where type = 'Romance'";
-$action = "select * from film where type = 'Action'";
+$requete = "SELECT * from film where qte >= 1;";
+$commande = "SELECT * from commande;";
+$user = "SELECT * from user;";
+$contact = "SELECT * from contact;";
+$Livre = "SELECT * from film;";
+$admin = "SELECT * from user where type='admin';";
+$user = "SELECT * from user where type='user';";
+$roman = "SELECT * FROM film WHERE type = 'Roman' AND qte >= 1";
+$fantastique = "SELECT * FROM film WHERE type = 'Fantastique' AND qte >= 1";
+$romance = "SELECT * from film where type = 'Romance' AND qte >= 1";
+$action = "SELECT * from film where type = 'Action' AND qte >= 1";
 
 
 $resultat = mysqli_query($c, $requete);

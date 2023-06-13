@@ -127,86 +127,82 @@
                            <legend align="center">Update livre</legend>
                            <?php
                               if (isset($_GET['idFilm'])) {
-                              	$codef = $_GET['idFilm'];
-                              	
-                              	$host = 'localhost';
-                              	$user = 'root';
-                              	$pass = '';
-                              	$dbname ="gestion film";
-                              	$conn = mysqli_connect($host, $user, $pass, $dbname);
-                              	if (!$conn) {
-                              		die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
-                              	}
-                              	
-                              
-                              	$sql = "SELECT * FROM film WHERE idFilm='$codef'";
-                              	$result = mysqli_query($conn, $sql);
-                              	if (mysqli_num_rows($result) == 1) {
-                              		$row = mysqli_fetch_assoc($result);
-                              		$codef = $row['idFilm'];
-                              		$nomf = $row['nomfilm'];
-                              		$prod = $row['producteur'];
-                              		$type = $row['type'];
-                              		$img = $row['img'];
-                              		$prix = $row['prix'];
-                              		$des = $row['detail'];
-                              		$nb = $row['nb'];
-                              		$qte = $row['qte'];
-                              	
-                              	} else {
-                              		echo "Erreur : Film non trouve.";
-                              		exit();
-                              	}
-                              	
-                              
-                              	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                              		$nomf = $_POST['nomf'];
-                              		$prod = $_POST['prod'];
-                              		$type = $_POST['type'];
-                              		$img = $_POST['img'];
-                              		$prix = $_POST['prix'];
-                              		$des = $_POST['des'];
-                              		$nb = $_POST['nb'];
-                              		$qte = $_POST['qte'];
-                              	
-                              		$sql = "update film set nomfilm='$nomf',producteur='$prod' ,type='$type',img='$img', nb='$nb',prix='$prix',detail='$des',qte='$qte'  where idFilm='$codef' ";
-                              		if (mysqli_query($conn, $sql)) {
-                                       ?>
-                                       <script>
-                                          alert("film modifie avec succès");
-                                          
-                                       </script>
-                                       <?php
-                                       
-                              		} else {
-                              			echo "Erreur de modification de film : <br> " . mysqli_error($conn);
-                              		}
-                              	}
-                              	
-                              
-                              	echo "<form method='POST'>";
-                              	echo "Code du livre : <input type='text' name='codef' value='$codef'><br><br>";
-                              	echo "Nom du livre : <input type='text' name='nomf' value='$nomf'><br><br>";
-                              	echo "Producteur : <input type='text' name='prod' value='$prod'><br><br>";
-                              	echo "Type : <input type='text' name='type' value='$type'><br><br>";
-                              	echo "img : <input type='text' name='img' value='$img'><br><br>";
-                              	echo "prix : <input type='text' name='prix' value='$prix'><br><br>";
-                              	echo "nb : <input type='text' name='nb' value='$nb'><br><br>";
-                              	echo "qte : <input type='text' name='qte' value='$qte'><br><br>";
-                              	echo "Description : <textarea name='des' >$des</textarea><br><br>";
-                              
-                              
-                              
-                              	echo "<input type='submit' value='Modifier'>";
-                              	echo "<input type='reset' value='Annuler'><br><br>";
-                              	
-                              	echo "</form>";
-                              	
-                              	
-                              	mysqli_close($conn);
-                              } else {
-                              	echo "Erreur : identifiant de livre non renseigne.";
-                              }
+                                 $codef = $_GET['idFilm'];
+                         
+                                 $host = 'localhost';
+                                 $user = 'root';
+                                 $pass = '';
+                                 $dbname = "gestion film";
+                                 $conn = mysqli_connect($host, $user, $pass, $dbname);
+                                 if (!$conn) {
+                                     die('Erreur de connexion à la base de données : ' . mysqli_connect_error());
+                                 }
+                         
+                                 $sql = "SELECT * FROM film WHERE idFilm='$codef'";
+                                 $result = mysqli_query($conn, $sql);
+                                 if (mysqli_num_rows($result) == 1) {
+                                     $row = mysqli_fetch_assoc($result);
+                                     $codef = $row['idFilm'];
+                                     $nomf = $row['nomfilm'];
+                                     $prod = $row['producteur'];
+                                     $type = $row['type'];
+                                     $img = $row['img'];
+                                     $prix = $row['prix'];
+                                     $des = $row['detail'];
+                                     $nb = $row['nb'];
+                                     $qte = $row['qte'];
+                         
+                                     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                                         $nomf = $_POST['nomf'];
+                                         $prod = $_POST['prod'];
+                                         $type = $_POST['type'];
+                                         $img = $_POST['img'];
+                                         $prix = $_POST['prix'];
+                                         $des = $_POST['des'];
+                                         $nb = $_POST['nb'];
+                                         $qte = $_POST['qte'];
+                         
+                                         $sql = "UPDATE film SET nomfilm=?, producteur=?, type=?, img=?, nb=?, prix=?, detail=?, qte=? WHERE idFilm=?";
+                                         $stmt = $conn->prepare($sql);
+                                         $stmt->bind_param("ssssssssi", $nomf, $prod, $type, $img, $nb, $prix, $des, $qte, $codef);
+                         
+                                         if ($stmt->execute()) {
+                                             ?>
+                                             <script>
+                                                alert("Film <?php echo $nomf ?> a bien ete modifer");
+                                             </script>
+                                             <?php
+                                         } else {
+                                             echo "Erreur de modification de film : <br> " . $stmt->error;
+                                         }
+                         
+                                         $stmt->close();
+                                     }
+                         
+                                     echo "<form method='POST'>";
+                                     echo "Code du livre : <input type='text' name='codef' value='$codef'><br><br>";
+                                     echo "Nom du livre : <input type='text' name='nomf' value='$nomf'><br><br>";
+                                     echo "Producteur : <input type='text' name='prod' value='$prod'><br><br>";
+                                     echo "Type : <input type='text' name='type' value='$type'><br><br>";
+                                     echo "img : <input type='text' name='img' value='$img'><br><br>";
+                                     echo "prix : <input type='text' name='prix' value='$prix'><br><br>";
+                                     echo "nb : <input type='text' name='nb' value='$nb'><br><br>";
+                                     echo "qte : <input type='text' name='qte' value='$qte'><br><br>";
+                                     echo "Description : <textarea name='des'>$des</textarea><br><br>";
+                         
+                                     echo "<input type='submit' value='Modifier'>";
+                                     echo "<input type='reset' value='Annuler'><br><br>";
+                         
+                                     echo "</form>";
+                         
+                                     mysqli_close($conn);
+                                 } else {
+                                     echo "Erreur : Film non trouvé.";
+                                     exit();
+                                 }
+                             } else {
+                                 echo "Erreur : identifiant de film non renseigné.";
+                             }
                               ?>
                         </fieldset>
                      </div>

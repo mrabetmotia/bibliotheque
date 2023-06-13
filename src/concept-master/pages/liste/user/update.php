@@ -169,7 +169,7 @@
                                     if (mysqli_query($conn, $sql)) {
                                        ?>
                            <script>
-                              alert("Merci, User id <?php $iduser ?> a bien ete modifer");
+                              alert("Merci, User id <?php echo $iduser ?> a bien ete modifer");
                            </script>
                            <?php
                               header('refresh: 0; http://127.0.0.1/projects/poject/src/concept-master/pages/liste/user/user.php');

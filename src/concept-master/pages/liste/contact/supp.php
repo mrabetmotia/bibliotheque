@@ -18,7 +18,7 @@ if (isset($_GET['id']))
     {
             ?>
                 <script>
-                   alert("Merci, Message a bien ete supprime");
+                   alert("Merci, Message id <?php echo $id ?> a bien ete supprime");
                 </script>
 			<?php
         header('refresh: 0; http://127.0.0.1/projects/poject/src/concept-master/pages/liste/contact/contact.php');

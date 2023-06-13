@@ -19,37 +19,50 @@
    $c=mysqli_connect($serveur,$utilisateur,$mot_passe) or die ("erreur de connexion au serveur");
    mysqli_select_db($c, $base_donnee) or die(mysqli_error($c));
    
-   $requete="select * from commande " ;
-   $up = "UPDATE film SET qte = qte-'$qte' WHERE nb = '$nb'";
+   $requete="SELECT * FROM commande";
+   $up = "UPDATE film SET qte = qte - '$qte' WHERE nb = '$nb'";
    
-   $resultat = mysqli_query($c, $requete) or die("erreur d'insertion<br>" . mysqli_error($c));
+   $resultat = mysqli_query($c, $requete) or die("erreur de sélection<br>" . mysqli_error($c));
     
     $update = mysqli_query($c, $up) or die("erreur de mise à jour<br>" . mysqli_error($c));
 
-   $Num=mysqli_num_rows($resultat);
-   if (isset($_SESSION['username'])){
-       
-       $requete = "insert into commande(nom,tel,email,noml,prod,type,prix,nb,qte) values ('$user','$tel','$email','$name','$prod','$type','$prix','$nb','$qte');";
+   $Num = mysqli_num_rows($resultat);
    
+   $teste_qte = "SELECT qte FROM film";
+   $test = mysqli_query($c, $teste_qte) or die("erreur de sélection<br>" . mysqli_error($c));
+   $row = mysqli_fetch_assoc($test);
+   $available_qte = $row['qte'];
    
-           $resultat=mysqli_query ($c, $requete) or die ("erreur d'insertion<br>". mysqli_error($c));
-           ?>
-    <script>
-    alert("Commend successfully ");
-    </script>
-    <?php
-    header('refresh: 0.1; http://127.0.0.1/projects/poject/');
-    
-    
-    
-    }else{
+   if (empty($name) || empty($user) || empty($email) || empty($tel) || empty($prod) || empty($type) || empty($prix) || empty($nb) || empty($qte)) {
     ?>
     <script>
-    alert("Login pleas");
-    
-    
+    alert("Veuillez remplir tous les champs");
     </script>
     <?php
-    header('refresh: 0; http://127.0.0.1:8888/www/Gestion%20TP/Gestion_Film/poject/login/login.html');
+    } elseif ($available_qte < $qte) {
+       ?>
+       <script>
+       alert("Le nombre de livres est insuffisant");
+       </script>
+       <?php
+       exit(); 
+   } else if (isset($_SESSION['username'])) {
+
+        $requete = "INSERT INTO commande(nom, tel, email, noml, prod, type, prix, nb, qte) VALUES ('$user','$tel','$email','$name','$prod','$type','$prix','$nb','$qte')";
+        $resultat = mysqli_query($c, $requete) or die("erreur d'insertion<br>" . mysqli_error($c));
+        ?>
+        <script>
+        alert("Commande effectuée avec succès");
+        </script>
+        <?php
+        header('refresh: 0.1; http://127.0.0.1/projects/poject/');
+    } else {
+        ?>
+        <script>
+        alert("Veuillez vous connecter");
+        </script>
+        <?php
+        header('refresh: 0; http://127.0.0.1/projects/poject/login/login.html');
+        exit(); // or die();
     }   
 ?>
